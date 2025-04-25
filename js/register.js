@@ -13,6 +13,12 @@ function validate(event) {
         return false
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (!emailRegex.test(email)) {
+        error.innerHTML = `<p style="color: red; text-align: center;">email không hợp lệ</p>`
+        return false
+    }
+
     if (pass === '') {
         error.innerHTML = `<p style="color: red; text-align: center;">mật khẩu không được để trống</p>`
         return false
