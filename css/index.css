@@ -1,0 +1,286 @@
+body {
+    background-color: #f3f4f6;
+}
+
+.head {
+    background-color: #4338ca;
+    height: 60px;
+    width: 100%;
+    display: flex;
+}
+
+.head > p {
+    color: white;
+    margin-top: 15px;
+    margin: auto;
+}
+.account-dropdown{
+    margin-top: 3px;
+    margin: auto;
+}
+.title {
+    padding-left: 10px;
+}
+
+.section {
+    background-color: #4338ca;
+    width: 50%;
+    height: 124px;
+    margin-top: 20px;
+    margin-left: 336px;
+    border-radius: 12px;
+}
+
+.one {
+    color: white;
+    font-size: 22px;
+    padding-top: 20px;
+}
+
+.section > p {
+    color: white;
+}
+
+.heading {
+    font-size: 30px;
+    color: #4f46e5;
+}
+
+.box1 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box1 > label {
+    display: inline-block;
+    width: 120px;
+}
+
+.box2 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.box2 > button {
+    color: white;
+    background-color: #3b82f6;
+}
+
+.box2 > label {
+    display: inline-block;
+    width: 150px;
+}
+
+.box3 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    /* padding-left: 280px; */
+    padding-top: 5px;
+    margin-top: 30px;
+}
+/* .box3 > h3 {
+    padding-left: 300px;
+} */
+.box3 > p {
+    color: #22c55e;
+    font-size: 18px;
+}
+
+.box4 {
+    background-color: white;
+    height: 60%;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.box4 > button {
+    background-color: #22c55e;
+    color: white;
+    width: 163px;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+}
+.box4 > input {
+    width: 246px;
+    height: 42px;
+    border-radius: 8px;
+}
+
+.box4 > table {
+    border-spacing: 50px;
+}
+.category-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.box5 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.box5 > input,
+select {
+    height: 42px;
+    width: 150px;
+}
+
+.box5 > button {
+    background-color: #6366f1;
+    color: white;
+    width: 150px;
+    height: 42px;
+}
+
+.box6 {
+    background-color: white;
+    height: 60%;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.box6 > p {
+    color: red;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.box6 > form > button {
+    background-color: #1d4ed8;
+    height: 45px;
+    width: 38px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.box6 > form > input {
+    width: 160px;
+    height: 42px;
+}
+
+.box6 > form {
+    display: flex;
+    justify-content: center;
+}
+.category-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+.box6 > ul > li > span > a {
+    color: red;
+}
+
+.box6 .pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.box7 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.box7 > p {
+    color: red;
+}
+
+.box8 {
+    background-color: white;
+    height: 90px;
+    width: 720px;
+    margin: auto;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.foot {
+    background-color: #4338ca;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foot > p {
+    color: white;
+}
+
+.account-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.account-button {
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    margin-bottom: 5px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+#toggle:checked + .dropdown-menu {
+    display: block;
+}

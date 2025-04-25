@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="head">
+        <p class="title"><i class="fa-solid fa-book" style="color: #FFD43B;"></i> Tài Chính Cá Nhân K24_Rikkie</p>
+
+        <div class="account-dropdown">
+            <label for="toggle" class="account-button">Tài khoản &#8744;</label>
+            <input type="checkbox" id="toggle" hidden>
+            <ul class="dropdown-menu">
+                <li><a href="login.html">Đăng xuất</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <p class="one" align="center">🎯Kiểm soát chi tiêu thông minh</p>
+        <p align="center">Theo dõi ngân hàng và thu chi hằng tháng dễ dàng</p>
+    </div>
+
+    <div class="container">
+        <p class="heading" align="center">📊 Quản Lý Tài Chính Cá Nhân</p>
+
+        <div class="box1">
+            <label for="">📅 chọn tháng:</label>
+            <input type="month" id="month">
+        </div>
+
+        <div class="box2">
+            <label for="">💰 ngân sách tháng:</label>
+            <input type="text" placeholder="VD: 500000" id="budget">
+            <button type="submit" onclick="saveBudget()">Lưu</button>
+        </div>
+
+        <div class="box3">
+            <h3 align="center">Số tiền còn lại</h3>
+            <p align="center">0 VND</p>
+        </div>
+
+        <div class="box4">
+            <label>💼 Quản lý danh mục (theo tháng)</label>
+            <br>
+            <br>
+            <input type="text" placeholder="Tên danh mục">
+            <input type="text" placeholder="Giới hạn (VND)">
+            <button type="submit">Thêm danh mục</button>
+
+            <ul class="category-list">
+                <li>
+                    <span>tiền phòng - Giới hạn: 2,000,000 VND</span>
+                    <span class="actions"><a href="">Sửa</a> <a href="">Xóa</a></span>
+                </li>
+                <li>
+                    <span>tiền ăn - Giới hạn: 1,000,000 VND</span>
+                    <span class="actions"><a href="">Sửa</a> <a href="">Xóa</a></span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="box5">
+            <input type="text" placeholder="số tiền">
+            <select name="" id="">
+                <option value="">Tiền chi tiêu</option>
+            </select>
+            <input type="text" placeholder="ghi chú">
+            <button type="submit">Thêm</button>
+
+        </div>
+
+        <div class="box6">
+            <p>📑 Lịch sử giao dịch</p>
+            <form action="">
+                <input type="text" placeholder="tìm nội dung">
+                <button type="submit">🔎</button>
+                <input type="text" placeholder="sắp xếp theo giá">
+            </form>
+
+            <ul class="category-list">
+                <li>
+                    <span>tiền phòng - đóng tiền phòng tháng 3: 2,000,000 VND</span>
+                    <span class="actions"> <a href="">Xóa</a></span>
+                </li>
+                <li>
+                    <span>tiền xăng xe - đổ xăng 21/3: 100,000 VND</span>
+                    <span class="actions"><a href="">Xóa</a></span>
+                </li>
+
+            </ul>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>.</div>
+        <div class="box7">
+            <p>Danh mục "tiền ăn" đã vượt giới hạn: 1,060,000/1,000,000 VND</p>
+
+        </div>
+
+        <div class="box8">
+            <p>📅 Thống kê chi tiêu các tháng</p>
+
+        </div>
+    </div>
+</body>
+<footer>
+    <div class="foot">
+        <p>&#169;2025 Quản lý tài chính cá nhân. by Quốc Hai</p>
+
+    </div>
+    
+</footer>
+
+<script src="/js/index.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</html>

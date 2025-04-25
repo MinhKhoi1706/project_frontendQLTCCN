@@ -1,0 +1,30 @@
+body {
+    height: 100vh;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    height: 320px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+input {
+    height: 30px;
+    width: 320px;
+    margin-left: 35px;
+}
+
+button {
+    background-color: #16a34a;
+    color: white;
+    height: 35px;
+    width: 330px;
+    margin-left: 35px;
+    border: none;
+    border-radius: 8px;
+}
