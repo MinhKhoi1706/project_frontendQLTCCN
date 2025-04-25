@@ -8,7 +8,7 @@ body {
 
 .box {
     background-color: white;
-    height: 320px;
+    height: 60%;
     width: 400px;
     border-radius: 10px;
 }
@@ -28,3 +28,8 @@ button {
     border: none;
     border-radius: 8px;
 }
+
+/* .error{
+    color: red;
+    text-align: center;
+} */

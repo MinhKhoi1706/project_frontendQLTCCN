@@ -9,17 +9,19 @@
 </head>
 
 <body>
-    <form class="box">
+    <form class="box" onsubmit="login(event)">
         <h2 align="center"><i class="fa-solid fa-lock"></i> Đăng nhập</h2>
 
-        <input type="text" placeholder="Tên tài khoản">
+        <input type="email" placeholder="Tên tài khoản (email)" id="email">
         <br><br>
-        <input type="text" placeholder="Mật khẩu">
+        <input type="password" placeholder="Mật khẩu" id="pass">
         <br><br>
+        <p id="error" ></p>
         <button type="submit">Đăng nhập</button>
         <p align="center">Bạn chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
     </form>
 </body>
+<script src="/js/login.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />

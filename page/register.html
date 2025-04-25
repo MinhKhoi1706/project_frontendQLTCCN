@@ -9,19 +9,22 @@
 </head>
 
 <body>
-    <form class="box">
+    <form class="box" onsubmit="validate(event)">
         <h2 align="center">Đăng ký tài khoản</h2>
 
-        <input type="text" placeholder="Tên tài khoản">
+        <input type="email" placeholder="Tên tài khoản (email)" id="email">
         <br><br>
-        <input type="text" placeholder="Mật khẩu">
+        <input type="password" placeholder="Mật khẩu" id="pass">
         <br><br>
-        <input type="text" placeholder="Xác nhận mật khẩu">
+        <input type="password" placeholder="Xác nhận mật khẩu" id="confirmPass">
         <br><br>
+        <p id="error" ></p>
         <button type="submit">Đăng ký</button>
         <p align="center">Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+       
     </form>
 </body>
+<script src="/js/register.js"></script>
 
 
 </html>

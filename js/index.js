@@ -14,3 +14,12 @@ function saveBudget() {
 
     alert(`ngân sách tháng ${month} là ${Number(budget).toLocaleString()}VND`)
 }
+
+function confirmLogOut(){
+    const confirmLog = confirm("bạn có chắc muốn đăng xuất")
+
+    if(confirmLog){
+        window.location.href = `login.html`
+    }
+
+}

@@ -251,11 +251,11 @@ select {
 .account-dropdown {
     position: relative;
     display: inline-block;
+   
 }
 
 .account-button {
     color: white;
-    cursor: pointer;
     padding: 10px;
     display: inline-block;
 }
@@ -269,7 +269,7 @@ select {
     border-radius: 6px;
     display: none;
     min-width: 150px;
-    z-index: 1000;
+   
 }
 
 .dropdown-menu li {
