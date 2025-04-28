@@ -33,14 +33,27 @@
         <p class="heading" align="center">📊 Quản Lý Tài Chính Cá Nhân</p>
 
         <div class="box1">
-            <label for="">📅 chọn tháng:</label>
-            <input type="month" id="month">
+            <div class="box1Child">
+                <label for="">📅 chọn tháng:</label>
+                <input type="month" id="month">
+            </div>
+
+            <div>
+                <p id="errorBox1"></p>
+            </div>
         </div>
 
+
         <div class="box2">
-            <label for="">💰 ngân sách tháng:</label>
-            <input type="text" placeholder="VD: 500000" id="budget">
-            <button type="submit" onclick="saveBudget()">Lưu</button>
+            <div class="box2Child">
+                <label for="">💰 ngân sách tháng:</label>
+                <input type="text" placeholder="VD: 500000" id="budget">
+                <button type="submit" onclick="saveBudget()">Lưu</button>
+            </div>
+
+            <div>
+                <p id="errorBox2"></p>
+            </div>
         </div>
 
         <div class="box3">
@@ -52,9 +65,10 @@
             <label>💼 Quản lý danh mục (theo tháng)</label>
             <br>
             <br>
-            <input type="text" placeholder="Tên danh mục">
-            <input type="text" placeholder="Giới hạn (VND)">
-            <button type="submit">Thêm danh mục</button>
+            <input type="text" id="categoryName" placeholder="Tên danh mục">
+            <input type="text" id="categoryLimit" placeholder="Giới hạn (VND)">
+            <button type="button" id="addCategoryBtn">Thêm danh mục</button>
+
 
             <ul class="category-list">
                 <li>
@@ -89,16 +103,9 @@
             </form>
 
             <ul class="category-list">
-                <li>
-                    <span>tiền phòng - đóng tiền phòng tháng 3: 2,000,000 VND</span>
-                    <span class="actions"> <a href="">Xóa</a></span>
-                </li>
-                <li>
-                    <span>tiền xăng xe - đổ xăng 21/3: 100,000 VND</span>
-                    <span class="actions"><a href="">Xóa</a></span>
-                </li>
-
+                
             </ul>
+
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -126,12 +133,12 @@
         <p>&#169;2025 Quản lý tài chính cá nhân. by Quốc Hai</p>
 
     </div>
-    
+
 </footer>
 
 <script src="/js/index.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
 </html>
