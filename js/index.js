@@ -1,5 +1,4 @@
-
-let budgets = JSON.parse(localStorage.getItem("budgets")) || [];
+let budgets = JSON.parse(localStorage.getItem("budgets")) || []
 
 function saveBudget() {
     const month = document.querySelector("#month").value
@@ -9,7 +8,6 @@ function saveBudget() {
 
     errorBox1.textContent = ``
     errorBox2.textContent = ``
-
 
     if (month == "") {
         errorBox1.innerHTML = `<p style="display: block; color: red;" align="center">vui lòng nhập tháng</p>`
@@ -24,13 +22,10 @@ function saveBudget() {
     const newBudget = {
         month: month,
         budget: Number(budget)
-    };
+    }
 
-
-    budgets.push(newBudget);
-
-
-    localStorage.setItem("budgets", JSON.stringify(budgets));
+    budgets.push(newBudget)
+    localStorage.setItem("budgets", JSON.stringify(budgets))
 
     alert(`Đã lưu ngân sách tháng ${month}: ${Number(budget).toLocaleString()} VND`)
 
@@ -44,9 +39,9 @@ function confirmLogOut() {
     if (confirmLog) {
         window.location.href = `login.html`
     }
-
 }
 
+let categories = JSON.parse(localStorage.getItem("categories")) || []
 
 function addCategory() {
     const month = document.querySelector("#month").value
@@ -62,7 +57,7 @@ function addCategory() {
     }
     if (name === "" || limit === "") {
         alert("Vui lòng nhập đầy đủ thông tin danh mục!")
-        return;
+        return
     }
     if (isNaN(limit) || Number(limit) <= 0) {
         alert("Giới hạn phải là số dương!")
@@ -74,7 +69,7 @@ function addCategory() {
         month: month,
         name: name,
         limit: Number(limit)
-    };
+    }
 
     categories.push(newCategory)
     localStorage.setItem("categories", JSON.stringify(categories))
@@ -82,132 +77,128 @@ function addCategory() {
     nameInput.value = ""
     limitInput.value = ""
 
-    renderCategoryList();
-    alert("Thêm danh mục thành công!")
+    renderCategories()
+
 }
-
-
-let monthlyCategories = JSON.parse(localStorage.getItem("monthlyCategories")) || []
-
-
-function getCurrentMonth() {
-    const month = document.getElementById("month").value
-    if (!month) {
-        alert("vui lòng chọn tháng")
-        throw new Error("No month selected")
-    }
-    return month
-}
-
-
-function saveMonthlyCategories() {
-    localStorage.setItem("monthlyCategories", JSON.stringify(monthlyCategories))
-}
-
 
 function renderCategories() {
-    const month = getCurrentMonth()
+    const month = document.querySelector("#month").value
     const categoryList = document.querySelector(".category-list")
+    const categorySelect = document.querySelector("#categorySelect")
     categoryList.innerHTML = ""
+    categorySelect.innerHTML = '<option value="">Chọn danh mục chi tiêu</option>'
 
-    const monthData = monthlyCategories.find(m => m.month === month)
-    if (!monthData) return
+    const monthData = categories.filter(c => c.month === month)
+    if (monthData.length === 0) return
 
-    monthData.categories.forEach(category => {
+    monthData.forEach(category => {
         const li = document.createElement("li")
         li.innerHTML = `
-            <span>${category.name} - Giới hạn: ${category.budget.toLocaleString()} VND</span>
+            <span>${category.name} - Giới hạn: ${category.limit.toLocaleString()} VND</span>
             <span class="actions">
                 <button style="border: none; color: red;" onclick="editCategory('${category.id}')">Sửa</button>
                 <button style="border: none; color: red;" onclick="deleteCategory('${category.id}')">Xóa</button>
             </span>
         `
         categoryList.appendChild(li)
+
+        const option = document.createElement("option")
+        option.value = category.name
+        option.textContent = category.name
+        categorySelect.appendChild(option)
     })
 }
 
-
-function addCategory() {
-    const month = getCurrentMonth()
-    const nameInput = document.getElementById("categoryName")
-    const budgetInput = document.getElementById("categoryLimit")
-
-    const name = nameInput.value.trim()
-    const budget = parseInt(budgetInput.value.trim())
-
-    if (!name || isNaN(budget)) {
-        alert("vui lòng nhập tên và giới hạn hợp lệ")
-        return
-    }
-
-    let monthData = monthlyCategories.find(m => m.month === month)
-
-
-    if (!monthData) {
-        monthData = {
-            id: Date.now(),
-            month: month,
-            categories: [],
-            amount: 0
-        };
-        monthlyCategories.push(monthData);
-    }
-
-    const newCategory = {
-        id: Date.now(),
-        name,
-        budget
-    };
-
-    monthData.categories.push(newCategory)
-
-    saveMonthlyCategories()
-    renderCategories()
-
-    nameInput.value = ""
-    budgetInput.value = ""
-}
-
-
 function editCategory(categoryId) {
-    const month = getCurrentMonth()
-    const monthData = monthlyCategories.find(m => m.month === month)
-    if (!monthData) return
-
-    const category = monthData.categories.find(c => c.id == categoryId)
+    const category = categories.find(c => c.id == categoryId)
     if (!category) return
 
-    const newName = prompt("nhập tên danh mục mới:", category.name)
-    const newBudget = prompt("nhập giới hạn mới (VND):", category.budget)
+    const newName = prompt("Nhập tên danh mục mới:", category.name)
+    const newLimit = prompt("Nhập giới hạn mới (VND):", category.limit)
 
-    if (newName !== null && newBudget !== null && newName.trim() !== "" && !isNaN(newBudget)) {
+    if (newName !== null && newLimit !== null && newName.trim() !== "" && !isNaN(newLimit)) {
         category.name = newName.trim()
-        category.budget = parseInt(newBudget)
-        saveMonthlyCategories()
+        category.limit = parseInt(newLimit)
+        localStorage.setItem("categories", JSON.stringify(categories))
         renderCategories()
     }
 }
-
 
 function deleteCategory(categoryId) {
-    const month = getCurrentMonth()
-    const monthData = monthlyCategories.find(m => m.month === month)
-    if (!monthData) return
-
-    if (confirm("bạn muốn xóa danh mục này?")) {
-        monthData.categories = monthData.categories.filter(c => c.id != categoryId)
-        saveMonthlyCategories()
+    if (confirm("Bạn muốn xóa danh mục này?")) {
+        categories = categories.filter(c => c.id != categoryId)
+        localStorage.setItem("categories", JSON.stringify(categories))
         renderCategories()
     }
 }
-
 
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory)
 
-
 document.getElementById("month").addEventListener("change", renderCategories)
 
+renderCategories()
 
-if (document.getElementById("month").value) {
-    renderCategories()
+let spendings = JSON.parse(localStorage.getItem("spendings")) || []
+
+function addSpending() {
+    const spendingAmount = document.querySelector("#spendingAmount").value
+    const categorySelect = document.querySelector("#categorySelect").value
+    const spendingNote = document.querySelector("#spendingNote").value
+
+    if (categorySelect === "") {
+        alert("Vui lòng chọn danh mục chi tiêu!")
+        return
+    }
+
+    if (spendingAmount === "" || isNaN(spendingAmount)) {
+        alert("Vui lòng nhập số tiền hợp lệ!")
+        return
+    }
+
+    const newSpending = {
+        id: Date.now(),
+        amount: Number(spendingAmount),
+        category: categorySelect,
+        note: spendingNote
+    }
+
+    spendings.push(newSpending)
+    localStorage.setItem("spendings", JSON.stringify(spendings))
+
+
+    document.querySelector("#spendingAmount").value = ""
+    document.querySelector("#spendingNote").value = ""
+
+    renderSpendings()
 }
+
+
+
+function renderSpendings() {
+    const historyList = document.querySelector(".history")
+    historyList.innerHTML = ""
+
+    spendings.forEach(spending => {
+        const li = document.createElement("li")
+        li.innerHTML = `
+            ${spending.category} - ${spending.note}: ${spending.amount.toLocaleString()} VND
+            <button style="border: none; color: red;margin-right: 0;" onclick="deleteSpending('${spending.id}')">Xóa</button>
+        `
+        historyList.appendChild(li)
+    })
+}
+
+function deleteSpending(spendingId) {
+    if (confirm("Bạn muốn xóa chi tiêu này?")) {
+        spendings = spendings.filter(s => s.id != spendingId)
+        localStorage.setItem("spendings", JSON.stringify(spendings))
+        renderSpendings()
+    }
+}
+
+document.getElementById("addCategoryBtn").addEventListener("click", addCategory)
+document.getElementById("month").addEventListener("change", renderCategories)
+document.getElementById("addCategoryBtn").addEventListener("click", renderCategories)
+renderCategories()
+renderSpendings()
+

@@ -85,13 +85,13 @@
         </div>
 
         <div class="box5">
-            <input type="text" placeholder="số tiền">
-            <select name="" id="">
-                <option value="">Tiền chi tiêu</option>
+            <input type="text" id="spendingAmount" placeholder="Số tiền">
+            <select id="categorySelect">
+                <option value="">Chọn danh mục chi tiêu</option>
+                
             </select>
-            <input type="text" placeholder="ghi chú">
-            <button type="submit">Thêm</button>
-
+            <input type="text" id="spendingNote" placeholder="Ghi chú">
+            <button type="submit" onclick="addSpending()">Thêm</button>
         </div>
 
         <div class="box6">
@@ -102,8 +102,8 @@
                 <input type="text" placeholder="sắp xếp theo giá">
             </form>
 
-            <ul class="category-list">
-                
+            <ul class="history">
+
             </ul>
 
             <nav aria-label="Page navigation example">
