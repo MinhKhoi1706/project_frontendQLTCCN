@@ -86,7 +86,7 @@ function renderCategories() {
     const categoryList = document.querySelector(".category-list")
     const categorySelect = document.querySelector("#categorySelect")
     categoryList.innerHTML = ""
-    categorySelect.innerHTML = '<option value="">Chọn danh mục chi tiêu</option>'
+    categorySelect.innerHTML = '<option value="">Tiền chi tiêu</option>'
 
     const monthData = categories.filter(c => c.month === month)
     if (monthData.length === 0) return
@@ -109,20 +109,72 @@ function renderCategories() {
     })
 }
 
+let editCategoryId = null
+
 function editCategory(categoryId) {
     const category = categories.find(c => c.id == categoryId)
     if (!category) return
-
-    const newName = prompt("Nhập tên danh mục mới:", category.name)
-    const newLimit = prompt("Nhập giới hạn mới (VND):", category.limit)
-
-    if (newName !== null && newLimit !== null && newName.trim() !== "" && !isNaN(newLimit)) {
-        category.name = newName.trim()
-        category.limit = parseInt(newLimit)
-        localStorage.setItem("categories", JSON.stringify(categories))
-        renderCategories()
-    }
+    editCategoryId = categoryId
+    document.getElementById('overlay').style.display = 'block'
+    document.getElementById("editCategoryForm").style.display = "block"
+    document.getElementById("editCategoryName").value = category.name
+    document.getElementById("editCategoryLimit").value = category.limit
 }
+
+document.getElementById('cancelEditBtn').onclick = function () {
+    document.getElementById('overlay').style.display = 'none'
+    document.getElementById('editCategoryForm').style.display = 'none'
+}
+
+document.getElementById('saveEditBtn').onclick = function () {
+    document.getElementById('overlay').style.display = 'none'
+    document.getElementById('editCategoryForm').style.display = 'none'
+}
+
+function saveEditedCategory(categoryId) {
+    const newName = document.getElementById('editCategoryName').value.trim()
+    const newLimit = document.getElementById('editCategoryLimit').value.trim()
+
+    if (newName !== "" && !isNaN(newLimit)) {
+        const category = categories.find(c => c.id == categoryId)
+        if (category) {
+            category.name = newName
+            category.limit = parseInt(newLimit)
+            localStorage.setItem('categories', JSON.stringify(categories))
+            renderCategories()
+        }
+    }
+
+    document.getElementById('overlay').style.display = 'none'
+    document.getElementById('editCategoryForm').style.display = 'none'
+}
+
+document.getElementById("saveEditBtn").addEventListener("click", function () {
+    const newName = document.getElementById("editCategoryName").value.trim()
+    const newLimit = document.getElementById("editCategoryLimit").value.trim()
+    if (newName === "" || newLimit === "") {
+        alert("Vui lòng nhập đủ thông tin!")
+        return
+    }
+    if (isNaN(newLimit) || Number(newLimit) <= 0) {
+        alert("Giới hạn phải là số dương!")
+        return
+    }
+    const category = categories.find(c => c.id == editCategoryId)
+    if (!category) return
+    category.name = newName
+    category.limit = Number(newLimit)
+    localStorage.setItem("categories", JSON.stringify(categories))
+    renderCategories()
+    document.getElementById("editCategoryForm").style.display = "none"
+    editCategoryId = null
+})
+
+document.getElementById("cancelEditBtn").addEventListener("click", function () {
+    document.getElementById("editCategoryForm").style.display = "none"
+    editCategoryId = null
+})
+
 
 function deleteCategory(categoryId) {
     if (confirm("Bạn muốn xóa danh mục này?")) {
@@ -182,7 +234,7 @@ function renderSpendings() {
         const li = document.createElement("li")
         li.innerHTML = `
             ${spending.category} - ${spending.note}: ${spending.amount.toLocaleString()} VND
-            <button style="border: none; color: red;margin-right: 0;" onclick="deleteSpending('${spending.id}')">Xóa</button>
+            <button style="border: none; color: red;" onclick="deleteSpending('${spending.id}')">Xóa</button>
         `
         historyList.appendChild(li)
     })
@@ -201,4 +253,3 @@ document.getElementById("month").addEventListener("change", renderCategories)
 document.getElementById("addCategoryBtn").addEventListener("click", renderCategories)
 renderCategories()
 renderSpendings()
-

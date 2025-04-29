@@ -84,11 +84,21 @@
 
         </div>
 
+        <div id="overlay">
+            <div id="editCategoryForm" >
+                <h5>Sửa Danh Mục</h5>
+                <input type="text" id="editCategoryName" placeholder="Tên danh mục mới">
+                <input type="text" id="editCategoryLimit" placeholder="Giới hạn mới (VND)">
+                <button id="saveEditBtn">Cập nhật</button>
+                <button id="cancelEditBtn">Hủy</button>
+            </div>
+        </div>
+
         <div class="box5">
             <input type="text" id="spendingAmount" placeholder="Số tiền">
             <select id="categorySelect">
-                <option value="">Chọn danh mục chi tiêu</option>
-                
+                <option value="">Tiền chi tiêu</option>
+
             </select>
             <input type="text" id="spendingNote" placeholder="Ghi chú">
             <button type="submit" onclick="addSpending()">Thêm</button>
