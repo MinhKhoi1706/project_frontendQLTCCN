@@ -85,7 +85,7 @@
         </div>
 
         <div id="overlay">
-            <div id="editCategoryForm" >
+            <div id="editCategoryForm">
                 <h5>Sửa Danh Mục</h5>
                 <input type="text" id="editCategoryName" placeholder="Tên danh mục mới">
                 <input type="text" id="editCategoryLimit" placeholder="Giới hạn mới (VND)">
@@ -106,10 +106,14 @@
 
         <div class="box6">
             <p>📑 Lịch sử giao dịch</p>
-            <form action="">
-                <input type="text" placeholder="tìm nội dung">
+            <form id="searchForm">
+                <input type="text" placeholder="tìm nội dung" id="searchInput">
                 <button type="submit">🔎</button>
-                <input type="text" placeholder="sắp xếp theo giá">
+                <select id="sortSelect">
+                    <option value="">Sắp xếp theo giá</option>
+                    <option value="increase">Tăng dần</option>
+                    <option value="decrease">Giảm dần</option>
+                </select>
             </form>
 
             <ul class="history">
@@ -118,11 +122,11 @@
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
                 </ul>
             </nav>
         </div>
